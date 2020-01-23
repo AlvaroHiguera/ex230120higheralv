@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Examen 23-01-2020 / higheralv / Ej1</title>
+    <link rel="stylesheet" href="css/hig_her_alv_230120_ej1.css">
+    <script>
+
+        function almacenamientoYObtencionDatos() {
+            // Primero comprobamos la compatibilidad del navegador 
+            if (typeof (Storage) !== "undefined") {
+                //Almacenamos 
+                localStorage.setItem("equipo", "Deportivo");
+                //Obtenemos los datos 
+                localStorage.getItem("equipo");
+            } else {
+                document.getElementById("higheralv_cuentadeclics").innerHTML = "El navegador no es compatible con almacenamiento local";
+            }
+
+        }
+        function cuantosClicks() {
+            almacenamientoYObtencionDatos();
+            if (typeof (Storage) !== "undefined") {
+                if (localStorage.cuentadeclicks1) {
+                    //Si existe el contador, lo incrementamos en 1 
+                    localStorage.cuentadeclicks1 = Number(localStorage.cuentadeclicks1) + 30;
+                    //Realizamos conversión a número para evitar problemas. Los datos siempre se almacenan como cadena y requieren conversión. 
+                } else {
+                    // Si no existe el contador, lo creamos
+                    localStorage.cuentadeclicks1 = 30;
+                }
+                document.getElementById("higheralv_cuentadeclics").innerHTML = "Has hecho clic en el botón: " + localStorage.cuentadeclicks1 + " veces en esta sesión.";
+            } else {
+                document.getElementById("higheralv_cuentadeclics").innerHTML = "El navegador no soporta almacenamiento local";
+            }
+        }
+        function cuantosClicks2() {
+            almacenamientoYObtencionDatos();
+            if (typeof (Storage) !== "undefined") {
+                if (sessionStorage.cuentadeclicks2) {
+                    //Si existe el contador, lo incrementamos en 1 
+                    sessionStorage.cuentadeclicks2 = Number(sessionStorage.cuentadeclicks2) + 7;
+                    //Realizamos conversión a número para evitar problemas. Los datos siempre se almacenan como cadena y requieren conversión. 
+                } else {
+                    // Si no existe el contador, lo creamos
+                    sessionStorage.cuentadeclicks2 = 7;
+                }
+                document.getElementById("higheralv_cuentadeclics2").innerHTML = "Has hecho clic en el botón: " + sessionStorage.cuentadeclicks2 + " veces en esta sesión.";
+            } else {
+                document.getElementById("higheralv_cuentadeclics2").innerHTML = "El navegador no soporta almacenamiento local";
+            }
+        }
+        function reiniciarAudio(identificador) {
+            var elemento = document.getElementById(identificador);
+            elemento.currentTime = 0; elemento.play();
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="higheralv_inicio">Inicio del examen 23-01-2020. Alumno: higheralv</h1>
+
+        <img src="img/Recurso1.png" alt="Imagen editada por higheralv" class="higheralv_imagencentrada">
+
+        <div class="higheralv_creativecommons">
+            Se permite la generación de obras derivadas siempre que no se haga uso comercial. Tampoco se puede utilizar
+            la obra original con fines comerciales.
+            <br>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+                <img alt="Licencia Creative Commons" style="border-width:0"
+                    src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+            <br />Esta obra está bajo una
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia Creative Commons
+                Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>.
+        </div>
+    </header>
+
+    <div class="higheralv_contenedor">
+        <div class="higheralv_contenedor__higheralvContenedor1ConBordeVerde">
+            <picture>
+                <source media="(min-width:500px)" srcset="img/Recurso2.jpg">
+                <source media="(min-width:400px)" srcset="img/Recurso3.jpg">
+                <img src="img/Recurso4.jpg" alt="La retrocompatibilidad">
+            </picture>
+        </div>
+        <div class="higheralv_contenedor__higheralvContenedor1ConBordeAzul">
+            <button onclick="cuantosClicks()"
+                class="higheralv_contenedor__higheralvContenedor1ConBordeAzul__fondoboton">AumentarClics</button>
+            <p id="higheralv_cuentadeclics"></p>
+        </div>
+
+    </div>
+
+    <footer class="higheralv_contenedor_footer">
+        <div class="higheralv_contenedor_footer__elemento1">
+
+            <button onclick="cuantosClicks2()">Contador2</button><br>
+            <div id="higheralv_cuentadeclics2"></div>
+
+        </div>
+        <div class="higheralv_contenedor_footer__elemento2">
+            <audio id="audio1" controls>
+                <source src="audio/Recurso7.mp3" type="audio/mpeg">
+                <source src="audio/Recurso7.ogg" type="audio/ogg">
+                <source src="audio/Recurso7.wav" type="audio/wav">
+            </audio>
+            <button onclick="reiniciarAudio('audio1')">
+                Reiniciar audio
+            </button>
+        </div>
+        <div class="higheralv_contenedor_footer__elemento3">
+            <a href="hig_her_alv_230120_ej2.html">Ir a hig_her_alv_230120_ej2.html</a>
+        </div>
+    </footer>
+
+    <!-- Examen 23-01-2020. higheralv -->
+</body>
+
+</html>
