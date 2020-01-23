@@ -1,0 +1,13 @@
+.higheralv_contenedor2 {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  height: 300px;
+}
+.higheralv_contenedor2__elemento1 {
+  border: 1px solid teal;
+}
+.higheralv_contenedor2__elemento2 {
+  border: 1px solid mediumorchid;
+}
+
+/*# sourceMappingURL=hig_her_alv_230120_ej2.css.map */

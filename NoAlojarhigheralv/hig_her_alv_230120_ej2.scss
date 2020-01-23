@@ -1,0 +1,11 @@
+.higheralv_contenedor2{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    height: 300px;
+    &__elemento1{
+        border: 1px solid teal;
+    }
+    &__elemento2{
+        border: 1px solid mediumorchid;
+    }
+}
